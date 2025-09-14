@@ -1,0 +1,46 @@
+{
+  "name": "ycdirectory-ui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Modern React UI library with Tailwind CSS support",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "storybook": "pnpm --filter @ycdirectory/ui storybook",
+    "build-storybook": "pnpm --filter @ycdirectory/ui build-storybook"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "tailwindcss",
+    "design-system"
+  ],
+  "author": "YCDirectory",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "turbo": "^1.11.2",
+    "typescript": "^5.3.3"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowAny": [
+        "react",
+        "react-dom"
+      ]
+    },
+    "overrides": {
+      "esbuild": "^0.25.9"
+    }
+  }
+}
