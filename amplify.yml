@@ -1,6 +1,7 @@
 version: 1
 applications:
-  - frontend:
+  - appRoot: packages/ui
+    frontend:
       phases:
         preBuild:
           commands:
@@ -11,11 +12,11 @@ applications:
         build:
           commands:
             - echo "Building Storybook..."
-            - pnpm run build-storybook
+            - npm run build-storybook
             - echo "Build completed, checking output directory:"
-            - ls -la packages/ui/storybook-static
+            - ls -la storybook-static
       artifacts:
-        baseDirectory: packages/ui/storybook-static
+        baseDirectory: storybook-static
         files:
           - '**/*'
       cache:
