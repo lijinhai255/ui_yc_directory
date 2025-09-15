@@ -1,20 +1,26 @@
 version: 1
 applications:
-  - appRoot: packages/ui
+  - appRoot: .
     frontend:
       phases:
         preBuild:
           commands:
-            - npm install -g pnpm
-            - pnpm install --frozen-lockfile
-            - echo "Current directory: $(pwd)"
+            - echo "=== Debug: Current directory and structure ==="
+            - pwd
             - ls -la
+            - echo "=== Installing pnpm ==="
+            - npm install -g pnpm
+            - echo "=== Installing dependencies ==="
+            - pnpm install --frozen-lockfile
+            - echo "=== Checking package.json scripts ==="
+            - cat package.json | grep -A 10 '"scripts"'
         build:
           commands:
-            - echo "Building Storybook..."
-            - npm run build-storybook
-            - echo "Build completed, checking output directory:"
-            - ls -la storybook-static
+            - echo "=== Building Storybook ==="
+            - pnpm run build-storybook
+            - echo "=== Checking build output ==="
+            - ls -la
+            - if [ -d "storybook-static" ]; then echo "storybook-static found"; ls -la storybook-static; else echo "storybook-static not found, checking other directories"; find . -name "*storybook*" -type d; fi
       artifacts:
         baseDirectory: storybook-static
         files:
