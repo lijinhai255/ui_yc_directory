@@ -1,6 +1,6 @@
 version: 1
 applications:
-  - appRoot: "packages/ui"
+  - appRoot: /codebuild/output/src/ui_yc_directory
     frontend:
       phases:
         preBuild:
@@ -9,9 +9,9 @@ applications:
             - pnpm install --frozen-lockfile
         build:
           commands:
-            - cd ../.. && pnpm run build-storybook
+            - pnpm run build-storybook
       artifacts:
-        baseDirectory: storybook-static
+        baseDirectory: packages/ui/storybook-static
         files:
           - '**/*'
       cache:
