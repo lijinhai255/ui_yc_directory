@@ -44,95 +44,12 @@
     
     <link href="./sb-addons/essentials-outline-7/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/interactions-8/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/onboarding-8/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/storybook-9/manager-bundle.js" rel="modulepreload" />
-      <style>
-  /* 绿色主题变量 */
-  :root {
-    --primary-color: #4caf50;
-    --secondary-color: #2e7d32;
-    --light-green: #e8f5e9;
-    --text-color: #333333;
-    --bg-color: #f8f8f8;
-  }
-
-  /* 修改标题和图标 */
-  .sidebar-header div[role="button"] span,
-  .sidebar-header a span {
-    color: var(--primary-color) !important;
-    font-weight: bold;
-  }
-
-  /* 修改侧边栏选中项 */
-  .sidebar-item.selected,
-  [data-selected="true"],
-  [data-nodetype="story"][data-selected="true"] {
-    background-color: var(--light-green) !important;
-    color: var(--secondary-color) !important;
-  }
-
-  /* 修改按钮颜色 */
-  button.css-1gj6jqt,
-  button.css-1imo1gr,
-  button.css-sqdry3 {
-    background-color: var(--primary-color) !important;
-    color: white !important;
-  }
-
-  /* 修改链接颜色 */
-  a {
-    color: var(--primary-color) !important;
-  }
-
-  /* 修改标签页激活状态 */
-  [role="tab"][data-selected="true"] {
-    color: var(--primary-color) !important;
-    border-bottom-color: var(--primary-color) !important;
-  }
-
-  /* 修改搜索框聚焦状态 */
-  input:focus {
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.25) !important;
-  }
-</style>
-
-<script>
-  // 修改浏览器标签页标题
-  document.title = "Namefi UI";
-
-  // 在 DOM 加载完成后修改侧边栏标题
-  window.addEventListener("DOMContentLoaded", function () {
-    // 尝试立即修改
-    updateTitle();
-
-    // 如果没有立即生效，使用定时器多次尝试
-    const interval = setInterval(function () {
-      const success = updateTitle();
-      if (success) clearInterval(interval);
-    }, 100);
-
-    // 5秒后停止尝试
-    setTimeout(function () {
-      clearInterval(interval);
-    }, 5000);
-  });
-
-  function updateTitle() {
-    const titleElements = document.querySelectorAll(
-      '.sidebar-header div[role="button"] span, .sidebar-header a span'
-    );
-    if (titleElements.length > 0) {
-      titleElements.forEach(function (el) {
-        el.textContent = "Namefi UI";
-      });
-      return true;
-    }
-    return false;
-  }
-</script>
- 
+    <link href="./sb-addons/interactions-9/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/storybook-10/manager-bundle.js" rel="modulepreload" />
+       
 
     <style>
       #storybook-root[hidden] {
@@ -205,9 +122,11 @@
       
       import './sb-addons/essentials-outline-7/manager-bundle.js';
       
-      import './sb-addons/interactions-8/manager-bundle.js';
+      import './sb-addons/onboarding-8/manager-bundle.js';
       
-      import './sb-addons/storybook-9/manager-bundle.js';
+      import './sb-addons/interactions-9/manager-bundle.js';
+      
+      import './sb-addons/storybook-10/manager-bundle.js';
       
     </script>
 

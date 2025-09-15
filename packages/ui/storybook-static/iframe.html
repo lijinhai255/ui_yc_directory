@@ -19,7 +19,7 @@
     window.FRAMEWORK_OPTIONS = {};
     window.CHANNEL_OPTIONS = {};
     window.FEATURES = {"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":false,"storyStoreV7":true,"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false,"disallowImplicitActionsInRenderV8":false};
-    window.STORIES = [{"titlePrefix":"","directory":"./stories","files":"**/*.mdx","importPathMatcher":"^\\.[\\\\/](?:stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.mdx)$"},{"titlePrefix":"","directory":"./stories","files":"**/*.stories.@(js|jsx|ts|tsx)","importPathMatcher":"^\\.[\\\\/](?:stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(js|jsx|ts|tsx))$"}];
+    window.STORIES = [{"titlePrefix":"","directory":"./stories","files":"**/*.stories.@(js|jsx|ts|tsx)","importPathMatcher":"^\\.[\\\\/](?:stories(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(js|jsx|ts|tsx))$"}];
     window.DOCS_OPTIONS = {"defaultName":"Docs","autodocs":"tag"};
 
     
@@ -358,17 +358,11 @@
     console.warn('unable to connect to top frame for connecting dev tools');
   }
 </script>
-<!-- 尝试多种可能的路径来加载样式 -->
-<link rel="stylesheet" href="/style.css" />
-<link rel="stylesheet" href="/dist/style.css" />
-<link rel="stylesheet" href="../../packages/ui/dist/style.css" />
-<link rel="stylesheet" href="../../../packages/ui/dist/style.css" />
-
-<!-- 如果上述方法都不起作用，可以尝试内联样式 -->
 <style>
-  /* 这里可以添加一些基本样式，确保 Storybook 至少能正常显示 */
+  /* 自定义样式以匹配第二张截图 */
   body {
     font-family:
+      "Inter",
       system-ui,
       -apple-system,
       BlinkMacSystemFont,
@@ -380,33 +374,36 @@
       "Open Sans",
       "Helvetica Neue",
       sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #ddede6;
+  }
+
+  /* 增强导航项的样式 */
+  .sidebar-item {
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-item[data-selected="true"] {
+    background-color: rgba(72, 229, 155, 0.2) !important;
+    color: #48e59b !important;
+  }
+
+  /* 调整组件预览区域的样式 */
+  .docs-story {
+    background-color: #111111;
+    border-radius: 8px;
+  }
+
+  /* 调整控件面板的样式 */
+  .docblock-argstable-body {
+    background-color: #1a1a1a;
   }
 </style>
 
-<script>
-  // 尝试动态加载样式
-  (function () {
-    const paths = [
-      "/style.css",
-      "/dist/style.css",
-      "../../packages/ui/dist/style.css",
-      "../../../packages/ui/dist/style.css",
-    ];
-
-    function loadStyle(path) {
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = path;
-      document.head.appendChild(link);
-      console.log("Attempting to load style from:", path);
-    }
-
-    // 尝试所有路径
-    paths.forEach(loadStyle);
-  })();
-</script>
-
-  <script type="module" crossorigin src="./assets/iframe-BSCOqxwE.js"></script>
+  <script type="module" crossorigin src="./assets/iframe-Dlv1jwpf.js"></script>
 </head>
 
 <body>
