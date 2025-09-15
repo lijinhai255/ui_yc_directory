@@ -1,20 +1,18 @@
 version: 1
-applications:
-  - appRoot: /codebuild/output/src/ui_yc_directory
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - npm install -g pnpm
-            - pnpm install --frozen-lockfile
-        build:
-          commands:
-            - pnpm run build-storybook
-      artifacts:
-        baseDirectory: packages/ui/storybook-static
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - node_modules/**/*
-          - /root/.pnpm-store
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install -g pnpm
+        - pnpm install --frozen-lockfile
+    build:
+      commands:
+        - pnpm run build-storybook
+  artifacts:
+    baseDirectory: packages/ui/storybook-static
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - /root/.pnpm-store
