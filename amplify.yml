@@ -1,7 +1,6 @@
 version: 1
 applications:
-  - appRoot: packages/ui
-    frontend:
+  - frontend:
       phases:
         preBuild:
           commands:
@@ -11,7 +10,7 @@ applications:
           commands:
             - pnpm run build-storybook
       artifacts:
-        baseDirectory: storybook-static
+        baseDirectory: packages/ui/storybook-static
         files:
           - '**/*'
       cache:
