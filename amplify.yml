@@ -1,25 +1,23 @@
 version: 1
-applications:
-  - appRoot: "."
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - npm install -g pnpm
-            - pnpm install --frozen-lockfile
-            - echo "Current directory: $(pwd)"
-            - ls -la
-        build:
-          commands:
-            - echo "Building Storybook..."
-            - pnpm run build-storybook
-            - echo "Build completed, checking output directory:"
-            - ls -la packages/ui/storybook-static
-      artifacts:
-        baseDirectory: packages/ui/storybook-static
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - node_modules/**/*
-          - /root/.pnpm-store
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install -g pnpm
+        - pnpm install --frozen-lockfile
+        - echo "Current directory: $(pwd)"
+        - ls -la
+    build:
+      commands:
+        - echo "Building Storybook..."
+        - cd $(pwd) && pnpm run build-storybook
+        - echo "Build completed, checking output directory:"
+        - ls -la packages/ui/storybook-static
+  artifacts:
+    baseDirectory: packages/ui/storybook-static
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - /root/.pnpm-store
