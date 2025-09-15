@@ -1,6 +1,6 @@
 version: 1
 applications:
-  - appRoot: packages/ui  # 指定应用根目录
+  - appRoot: "."
     frontend:
       phases:
         preBuild:
@@ -14,9 +14,9 @@ applications:
             - echo "Building Storybook..."
             - pnpm run build-storybook
             - echo "Build completed, checking output directory:"
-            - ls -la storybook-static
+            - ls -la packages/ui/storybook-static
       artifacts:
-        baseDirectory: storybook-static
+        baseDirectory: packages/ui/storybook-static
         files:
           - '**/*'
       cache:
